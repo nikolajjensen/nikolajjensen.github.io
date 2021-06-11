@@ -1,0 +1,18 @@
+.custom-container {
+  width: 80%;
+  max-width: 720px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.extra-rounded {
+  border-radius: 10px;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.healthy-margin {
+  padding: 5px;
+}
