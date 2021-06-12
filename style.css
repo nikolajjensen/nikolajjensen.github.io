@@ -41,6 +41,13 @@
 
 .header-name {
   margin: 0px;
+  font-size: calc(1rem + 2.5vw);
+}
+
+@media (min-width: 1200px) {
+  .header-name {
+    font-size: 3rem;
+  }
 }
 
 .header-precursor {
