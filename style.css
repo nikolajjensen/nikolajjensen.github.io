@@ -41,10 +41,16 @@
 
 .header-name {
   margin: 0px;
-  font-size: calc(1rem + 2.5vw);
+  font-size: calc(0.5rem + 3.5vw);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 420px) {
+  .header-name {
+    font-size: calc(0.4rem + 4.5vw);
+  }
+}
+
+@media (min-width: 720px) {
   .header-name {
     font-size: 3rem;
   }
