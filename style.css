@@ -1,5 +1,5 @@
 .custom-container {
-  width: 80%;
+  width: 95%;
   max-width: 720px;
   margin-top: 50px;
   padding-top: 20px;
@@ -27,4 +27,46 @@
 .contact-icon:hover {
   padding: 10px;
   color: #696C77;
+}
+
+.product-social-icon {
+  color: #FFFFFF;
+  margin-right: 5px;
+}
+
+.header-subtitle {
+  margin: 0px;
+}
+
+.header-name {
+  margin: 0px;
+}
+
+.header-precursor {
+  margin: 0px;
+}
+
+.product-showcase {
+  margin: 12px;
+  flex-shrink: initial;
+}
+
+hr.solid {
+  border-top: 1px solid #bbb;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
 }
