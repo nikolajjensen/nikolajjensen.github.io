@@ -2,17 +2,29 @@
   width: 80%;
   max-width: 720px;
   margin-top: 50px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .extra-rounded {
   border-radius: 10px;
 }
 
-.top-buffer {
+.top-buffer-lg {
   margin-top: 20px;
 }
 
-.healthy-margin {
-  padding: 5px;
+.top-buffer {
+  margin-top: 10px;
+}
+
+.contact-icon {
+  padding: 10px;
+  color: #3F4045;
+}
+
+.contact-icon:hover {
+  padding: 10px;
+  color: #696C77;
 }
