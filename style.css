@@ -20,6 +20,16 @@
   margin-top: 10px;
 }
 
+.top-buffer-none {
+  margin-top: 0px !important;
+}
+
+.top-padding-sm {
+  padding-top: 6px !important;
+}
+
+
+
 .contact-icon {
   padding: 10px;
   color: #3F4045;
@@ -35,8 +45,25 @@
   margin-right: 5px;
 }
 
+.btn-primary-text {
+  color: #FFFFFF;
+}
+
+.btn-primary-text:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .header-subtitle {
   margin: 0px;
+}
+
+.app-icon-rounded {
+  border-radius: 29px;
+}
+
+.text-justify {
+  text-align: justify;
 }
 
 .header-name {
