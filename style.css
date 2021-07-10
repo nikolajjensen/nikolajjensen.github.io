@@ -28,8 +28,6 @@
   padding-top: 6px !important;
 }
 
-
-
 .contact-icon {
   padding: 10px;
   color: #3F4045;
@@ -59,7 +57,7 @@
 }
 
 .app-icon-rounded {
-  border-radius: 29px;
+  border-radius: 20%;
 }
 
 .text-justify {
