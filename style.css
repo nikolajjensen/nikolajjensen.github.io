@@ -1,4 +1,4 @@
-.custom-container {
+/*.custom-container {
   width: 95%;
   max-width: 720px;
   margin-top: 50px;
@@ -6,6 +6,35 @@
   padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
+}*/
+
+.custom-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Boxed mode for larger screens */
+@media (min-width: 780px) {
+  .custom-container {
+    max-width: 720px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #000;
+  }
+}
+
+.arm-blue {
+  background-color: #0091BD;
+}
+
+.p-extra-small {
+  padding: 1px;
 }
 
 .extra-rounded {
@@ -64,7 +93,8 @@
   margin: 0px;
 }
 
-.btn-group-xs > .btn, .btn-xs {
+.btn-group-xs>.btn,
+.btn-xs {
   padding: .21rem .4rem .19rem;
   font-size: .775rem;
   line-height: .5;
