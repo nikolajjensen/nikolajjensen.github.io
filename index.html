@@ -23,7 +23,7 @@
 
 <body>
   <main role="main" class="container custom-container shadow-lg d-flex justify-content-center extra-rounded">
-    <div class="col">
+    <div class="col-12">
       <div class="row d-flex justify-content-center">
         <div class="col-3 d-flex align-items-center">
           <img src="res/me.png" alt="nikolaj banke jensen" class="ratio ratio-1x1 rounded-circle shadow-lg" />
@@ -59,17 +59,19 @@
       <div class="row top-buffer-lg">
         <h4>What I'm working on</h2>
 
-          <div class="alert alert-primary product-showcase top-buffer-none top-padding-sm" role="alert">
-            <div class="row">
-              <h3>Kepler</h3>
-            </div>
-            <div class="row">
-              <div class="col">
-                <p class="text-justify">This is a C++ implementation of APL I wrote for my BSc dissertation. It is one
-                  of the most feature-rich open-source APL implementations available, supporting most primitive
-                  functions and operators. The following Kepler program sets up and runs 5 rounds of Conway's Game of
-                  Life!</p>
-                <pre class="border rounded"><code class="language-apl">⍝ Setting up a 10x10 board.
+          <div class="col-12">
+            <div class="alert alert-primary top-buffer-none top-padding-sm" role="alert">
+              <div class="row">
+                <h3>Kepler</h3>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p class="text-justify">This is a C++ implementation of APL I wrote for my BSc dissertation. It is one
+                    of the most feature-rich open-source APL implementations available, supporting most primitive
+                    functions and operators. The following Kepler program sets up and runs 5 rounds of Conway's Game of
+                    Life!</p>
+                  <div class="code-container">
+                    <pre class="border rounded"><code class="language-apl">⍝ Setting up a 10x10 board.
 glider ← 3 3⍴1 1 1 1 0 0 0 1 0
 board ← ¯10 ¯10↑glider
 
@@ -82,53 +84,60 @@ Round ← {Update ◊ ⎕←'\n \n' ◊ ⎕←board}
 
 ⍝ Run 5 rounds.
 (Round⍣5)0</code></pre>
-                <p>If you like functional programming, (semi-)esoteric languages, and funky symbols, you'll love Kepler.
-                </p>
-                <div class="d-flex flex-row">
-                  <div>
-                    <p class="bottom-buffer-none right-padding-btn"><a
-                        href="https://github.com/nikolajjensen/Kepler/actions/workflows/linux.yml"><img
-                          src="https://github.com/nikolajjensen/Kepler/actions/workflows/linux.yml/badge.svg"
-                          alt="Linux"></a></p>
                   </div>
-                  <div>
-                    <a href="https://github.com/nikolajjensen/Kepler" target="_blank"
-                      class="btn btn-dark btn-sm btn-primary-text btn-xs bottom-buffer-none" role="button"><i
-                        class="product-social-icon fab fa-github fa-md"></i>See it on GitHub</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="alert alert-primary product-showcase top-buffer-none top-padding-sm" role="alert">
-            <div class="row">
-              <h3>SunCalc</h3>
-            </div>
-            <div class="row">
-              <div class="col">
-                <p class="text-justify">A Swift Package for calculation of Sun and Moon positions and phases. Originally
-                  written in <a href="https://github.com/shred/commons-suncalc" target="_blank">Java</a>, I have
-                  rewritten this project as a native Swift Package for easy use on Apple platforms. This work is open
-                  source and is published under the <a href="http://www.apache.org/licenses/LICENSE-2.0"
-                    target="_blank">Apache License 2.0</a>.</p>
-                <div class="d-flex flex-row">
-                  <div>
-                    <p class="bottom-buffer-none right-padding-btn"><a
-                        href="https://github.com/nikolajjensen/SunCalc/actions/workflows/swift.yml"><img
-                          src="https://github.com/nikolajjensen/SunCalc/actions/workflows/swift.yml/badge.svg"
-                          alt="Swift"></a></p>
-                  </div>
-                  <div>
-                    <a href="https://github.com/nikolajjensen/SunCalc" target="_blank"
-                      class="btn btn-dark btn-sm btn-primary-text btn-xs bottom-buffer-none" role="button"><i
-                        class="product-social-icon fab fa-github fa-md"></i>See it on GitHub</a>
+                  <p>If you like functional programming, (semi-)esoteric languages, and funky symbols, you'll love
+                    Kepler.
+                  </p>
+                  <div class="d-flex flex-row">
+                    <div>
+                      <p class="bottom-buffer-none right-padding-btn"><a
+                          href="https://github.com/nikolajjensen/Kepler/actions/workflows/linux.yml"><img
+                            src="https://github.com/nikolajjensen/Kepler/actions/workflows/linux.yml/badge.svg"
+                            alt="Linux"></a></p>
+                    </div>
+                    <div>
+                      <a href="https://github.com/nikolajjensen/Kepler" target="_blank"
+                        class="btn btn-dark btn-sm btn-primary-text btn-xs bottom-buffer-none" role="button"><i
+                          class="product-social-icon fab fa-github fa-md"></i>See it on GitHub</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <div class="col-12">
+
+            <div class="alert alert-primary top-buffer-none top-padding-sm" role="alert">
+              <div class="row">
+                <h3>SunCalc</h3>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p class="text-justify">A Swift Package for calculation of Sun and Moon positions and phases.
+                    Originally
+                    written in <a href="https://github.com/shred/commons-suncalc" target="_blank">Java</a>, I have
+                    rewritten this project as a native Swift Package for easy use on Apple platforms. This work is open
+                    source and is published under the <a href="http://www.apache.org/licenses/LICENSE-2.0"
+                      target="_blank">Apache License 2.0</a>.</p>
+                  <div class="d-flex flex-row">
+                    <div>
+                      <p class="bottom-buffer-none right-padding-btn"><a
+                          href="https://github.com/nikolajjensen/SunCalc/actions/workflows/swift.yml"><img
+                            src="https://github.com/nikolajjensen/SunCalc/actions/workflows/swift.yml/badge.svg"
+                            alt="Swift"></a></p>
+                    </div>
+                    <div>
+                      <a href="https://github.com/nikolajjensen/SunCalc" target="_blank"
+                        class="btn btn-dark btn-sm btn-primary-text btn-xs bottom-buffer-none" role="button"><i
+                          class="product-social-icon fab fa-github fa-md"></i>See it on GitHub</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
       </div>
 
       <div class="row top-buffer-lg">

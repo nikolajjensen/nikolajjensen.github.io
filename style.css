@@ -14,6 +14,7 @@
   padding: 0 15px;
   margin: 0 auto;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 /* Boxed mode for larger screens */
@@ -130,10 +131,6 @@
   margin: 0px;
 }
 
-.product-showcase {
-  margin: 12px;
-  flex-shrink: initial;
-}
 
 hr.solid {
   border-top: 1px solid #bbb;
@@ -153,4 +150,15 @@ a:hover {
 
 a:active {
   text-decoration: underline;
+}
+
+.code-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Enables smooth scrolling on iOS */
+}
+
+.code-container pre {
+  /*white-space: pre-wrap;*/
+  /* Allow line breaks if necessary */
 }
