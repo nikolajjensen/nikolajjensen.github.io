@@ -157,8 +157,3 @@ a:active {
   -webkit-overflow-scrolling: touch;
   /* Enables smooth scrolling on iOS */
 }
-
-.code-container pre {
-  /*white-space: pre-wrap;*/
-  /* Allow line breaks if necessary */
-}
