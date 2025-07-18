@@ -28,9 +28,7 @@ jobs:
           cp -r prism output/
           cp -r res output/
 
-          find ./cozy/ -name "*.html" -exec cp {} output/cozy/ \;
-          find ./cozy/ -name "*.js" -exec cp {} output/cozy/ \;
-          find ./cozy/ -name "*.json" -exec cp {} output/cozy/ \;
+          find cozy/ -maxdepth 1 -type f -name "*.html" -exec cp {} output/cozy/ \;
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
