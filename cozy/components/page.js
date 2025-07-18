@@ -4,6 +4,10 @@ async function loadFragment(id, url) {
   document.getElementById(id).innerHTML = html;
 }
 
+document.getElementById("content-wrapper").classList.add(
+  "container", "custom-container", "d-flex", "justify-content-center", "extra-rounded"
+);
+
 Promise.all([
   loadFragment('head', 'components/head.html'),
   loadFragment('header', 'components/header.html'),
@@ -19,9 +23,6 @@ Promise.all([
     // Show the modal
     myModal.show();
 
-    document.getElementById("content-wrapper").classList.add(
-      "container", "custom-container", "d-flex", "justify-content-center", "extra-rounded"
-    );
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
     const response = await fetch('config.json');
