@@ -28,7 +28,9 @@ jobs:
           cp -r prism output/
           cp -r res output/
 
+          mkdir output/cozy
           find cozy/ -maxdepth 1 -type f -name "*.html" -exec cp {} output/cozy/ \;
+          
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
