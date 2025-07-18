@@ -13,7 +13,7 @@ Promise.all([
   loadFragment('scripts', 'components/scripts.html'),
 ]).then(() => {
   document.getElementById("content-wrapper").classList.add(
-    "container", "custom-container", "shadow-lg", "d-flex", "justify-content-center", "extra-rounded"
+    "container", "shadow-lg", "d-flex", "justify-content-center", "extra-rounded", "custom-container", "no-shadow-lg-on-lg"
   );
 
   return fetch('config.json') // adjust path as needed

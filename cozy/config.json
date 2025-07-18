@@ -7,7 +7,7 @@
                 {
                     "title": "Chapters 1, 2, 3",
                     "subtitle": "Practising with composites",
-                    "progress": 25,
+                    "progress": 0,
                     "link": "setup.html"
                 }
             ]
@@ -16,8 +16,7 @@
             "title": "Fuselage I",
             "pages": [
                 {
-                    "title": "Chapter 4",
-                    "link": "ch4.html"
+                    "title": "Chapter 4"
                 },
                 {
                     "title": "Chapter 5"
