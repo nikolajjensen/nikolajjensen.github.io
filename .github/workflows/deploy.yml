@@ -23,7 +23,7 @@ jobs:
       - name: Compose Pages
         run: |
           chmod +x ./cozy/compose.sh
-          ./cozy/compose.sh
+          ./cozy/compose.sh ./cozy/pages/
 
       - name: Prepare output folder
         run: |
