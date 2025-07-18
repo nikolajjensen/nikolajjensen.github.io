@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title id="document-title">...</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <link href="../prism/prism-vs.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="../style.css" rel="stylesheet">
+</head>
+
+<body>
+  <main role="main" class="container custom-container shadow-lg d-flex justify-content-center extra-rounded">
+    <div class="col">
+      <div class="col h-pad d-flex justify-content-center">
+        <div class="col d-flex align-items-center">
+          <div>
+            <div>
+              <h1 class="header-name"><strong id="page-title">...</strong></h1>
+            </div>
+            <div>
+              <p class="text-secondary header-subtitle"><small>Documenting my build of the Cozy Mk4 aircraft, from foam
+                  to flight.</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col h-pad top-buffer-lg">
+        <p class="text-justify">
+          The Cozy Mk IV is a four-seat, plans-built canard aircraft designed to be a high-performance, fuel-efficient homebuilt plane made primarily from fiberglass and foam composites. It has a pusher configuration and a characteristic front canard instead of a traditional tail. This blog is my personal build log where I will be documenting the process of building my own Cozy Mk IV from raw materials and (hopefully) fly it eventually. I'll be sharing photos, technical details, and the occasional setback. Whether you're a builder or just curious about the process of building an airplane in your garage, I hope you'll find something here worth following.
+        </p>
+        - Nikolaj
+      </div>
+
+      <div class="col top-buffer-lg">
+        <figure class="figure">
+          <img src="res/cozy.jpg" class="figure-img img-fluid" alt="Cozy Mk4">
+          <figcaption class="figure-caption text-end h-pad">A Cozy MK4. <em class="text-secondary">By <a
+                href="//commons.wikimedia.org/wiki/User:Arpingstone" title="User:Arpingstone">Arpingstone</a> - <span
+                class="int-own-work" lang="en">Own work</span>, Public Domain, <a
+                href="https://commons.wikimedia.org/w/index.php?curid=546591">Link</a></em></figcaption>
+        </figure>
+      </div>
+
+      <div class="col top-buffer-lg">
+        <h3 class="h-pad">Progress</h3>
+
+        <div id="chapter-list"></div>
+      </div>
+      <div class="col">
+        <div class="d-flex justify-content-center">
+          <a href="https://github.com/nikolajjensen" target="_blank" class=""><i
+              class="contact-icon fab fa-github fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/nikolaj-banke-jensen-b77b721bb" target="_blank" class=""><i
+              class="contact-icon fab fa-linkedin fa-2x"></i></a>
+          <a href="mailto:hello@nikolajjensen.com" class=""><i class="contact-icon fas fa-envelope fa-2x"></i></a>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="d-flex justify-content-center">
+          <p class="text-secondary"><small><a href="https://www.nikolajjensen.com">nikolajjensen.com</a> &copy;
+              Nikolaj
+              Banke Jensen <span id="year"></span></small></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    fetch('config.json')
+      .then(response => response.json())
+      .then(config => {
+        document.getElementById('document-title').textContent = config.title;
+        document.getElementById('page-title').textContent = config.title;
+
+        return config;
+      })
+      .then(config => config.sections)
+      .then(sections => {
+        const container = document.getElementById('chapter-list');
+
+        sections.forEach(section => {
+          // Create section header
+          const header = document.createElement('h6');
+          header.className = 'mt-4 mb-2 ps-3'; // some spacing and padding
+          header.textContent = section.title;
+          container.appendChild(header);
+
+          // Create list group for this section
+          const list = document.createElement('ul');
+          list.className = 'list-group list-group-flush border-top border-bottom mb-4';
+
+          section.pages.forEach(page => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'list-group-item custom-padding list-group-item-action';
+            button.onclick = () => window.location.href = page.link;
+            button.disabled = page.link == null;
+
+            button.innerHTML = `
+              <div class="row align-items-center">
+                <div class="col">
+                  <span class="me-3 d-block">${page.title}</span>
+                  ${page.subtitle ? `<small class="text-secondary">${page.subtitle}</small>` : ''}
+                </div>
+                <div class="col-3">
+                  <div class="progress">
+                    <div class="progress-bar ${page.progress == 100 ? "text-bg-success" : "text-bg-active"}" role="progressbar"
+                        style="width: ${page.progress ?? 0}%" aria-valuenow="${page.progress ?? 0}"
+                        aria-valuemin="0" aria-valuemax="100">
+                      ${page.progress ?? 0}%
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            list.appendChild(button);
+          });
+
+          container.appendChild(list);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading sectioned chapter list:', error);
+      });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+  </script>
+  <script src="../prism/prism.js"></script>
+</body>
+
+</html>

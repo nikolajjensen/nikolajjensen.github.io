@@ -20,9 +20,9 @@
 }
 
 /* Boxed mode for larger screens */
-@media (min-width: 780px) {
+@media (min-width: 840px) {
   .custom-container {
-    max-width: 720px;
+    max-width: 840px;
     margin-top: 50px;
     margin-bottom: 50px;
     padding-top: 20px;
@@ -124,13 +124,13 @@
 
 @media (min-width: 420px) {
   .header-name {
-    font-size: calc(0.4rem + 4.5vw);
+    font-size: calc(0.35rem + 5.8vw);
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 840px) {
   .header-name {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -173,3 +173,8 @@ a:active {
 .carousel img {
   object-fit: fill;
 }
+
+.list-group-item.custom-padding {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
