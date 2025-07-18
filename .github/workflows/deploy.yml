@@ -24,6 +24,9 @@ jobs:
         run: |
           mkdir output
           cp index.html output/
+          cp style.css output/
+          cp -r prism output/
+          cp -r res output/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
