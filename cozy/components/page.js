@@ -1,4 +1,14 @@
-document.addEventListener('DOMContentLoaded', async function () {
+async function loadFragment(id, url) {
+  const response = await fetch(url);
+  const html = await response.text();
+  document.getElementById(id).innerHTML = html;
+}
+
+Promise.all([
+  loadFragment('head', 'components/head.html'),
+  loadFragment('header', 'components/header.html'),
+  loadFragment('footer', 'components/footer.html')
+]).then(async () => {
   // Get a reference to the modal element
   const myModalEl = document.getElementById('myModal');
 
@@ -9,6 +19,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Show the modal
     myModal.show();
 
+    document.getElementById("content-wrapper").classList.add(
+      "container", "custom-container", "d-flex", "justify-content-center", "extra-rounded"
+    );
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
     const response = await fetch('config.json');
