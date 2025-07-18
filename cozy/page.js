@@ -46,7 +46,7 @@ new Promise(async () => {
       document.getElementById('document-title').textContent += (" | " + matchedPage.title);
     }
 
-    await new Promise(r => setTimeout(r, 2000));
+    //await new Promise(r => setTimeout(r, 2000));
   } finally {
     myModalEl.classList.add("fade");
     myModal.hide();
