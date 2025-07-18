@@ -1,3 +1,34 @@
+#!/bin/bash
+
+# Check for exactly one argument: the target subfolder
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 path/to/subfolder"
+  exit 1
+fi
+
+INPUT_SUBDIR="$(realpath "$1")"
+
+# Ensure the input is a directory
+if [ ! -d "$INPUT_SUBDIR" ]; then
+  echo "Error: '$INPUT_SUBDIR' is not a directory"
+  exit 1
+fi
+
+# Compute the output directory (parent of the subfolder)
+OUTPUT_DIR="$(dirname "$INPUT_SUBDIR")"
+
+echo "Searching in: $INPUT_SUBDIR"
+echo "Outputting to: $OUTPUT_DIR"
+
+# Find all HTML files in the subdirectory (recursive)
+find "$INPUT_SUBDIR" -type f -name "*.html" | while read -r INPUT_FILE; do
+  FILE_NAME="$(basename "$INPUT_FILE")"
+  OUTPUT_FILE="$OUTPUT_DIR/$FILE_NAME"
+
+  echo "Processing: $INPUT_FILE → $OUTPUT_FILE"
+
+  {
+    cat <<EOF
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,11 +84,12 @@
       </div>
 
       <!-- PAGE CONTENT -->
-<div class="col h-pad top-buffer-lg">
-    <p class="text-justify">
-        Progress is coming soon...
-    </p>
-</div>
+EOF
+
+    cat "$INPUT_FILE"
+
+    cat <<EOF
+
       <!-- PAGE CONTENT -->
 
       <div class="col h-pad">
@@ -91,3 +123,8 @@
 <script src="./page.js"></script>
 
 </html>
+EOF
+  } >"$OUTPUT_FILE"
+done
+
+echo "Done."
