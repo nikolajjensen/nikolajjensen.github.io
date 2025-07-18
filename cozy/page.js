@@ -5,9 +5,18 @@ new Promise(async () => {
   // Create a Bootstrap modal instance
   const myModal = new bootstrap.Modal(myModalEl);
 
+  let workCompleted = false;
+  let shownModal = false;
+
   try {
     // Show the modal
-    myModal.show();
+    (async () => {
+      await new Promise(resolve => setTimeout(resolve, 300));
+      if (!workCompleted) {
+        myModal.show();
+        shownModal = true;
+      }
+    })();
 
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
@@ -46,9 +55,12 @@ new Promise(async () => {
       document.getElementById('document-title').textContent += (" | " + matchedPage.title);
     }
 
-    //await new Promise(r => setTimeout(r, 2000));
+    //await new Promise(r => setTimeout(r, 450));
+    workCompleted = true;
   } finally {
-    myModalEl.classList.add("fade");
-    myModal.hide();
+    if (shownModal) {
+      myModalEl.classList.add("fade");
+      myModal.hide();
+    }
   }
 });
