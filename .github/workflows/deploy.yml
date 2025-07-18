@@ -20,6 +20,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Compose Pages
+        run: |
+          chmod +x ./cozy/compose.sh
+          ./cozy/compose.sh
+
       - name: Prepare output folder
         run: |
           mkdir output
