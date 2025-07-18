@@ -11,53 +11,46 @@ Promise.all([
   loadFragment('header', 'components/header.html'),
   loadFragment('footer', 'components/footer.html'),
   loadFragment('scripts', 'components/scripts.html'),
-]).then(() => {
+]).then(async () => {
   document.getElementById("content-wrapper").classList.add(
-    "container", "shadow-lg", "d-flex", "justify-content-center", "extra-rounded", "custom-container", "no-shadow-lg-on-lg"
+    "container", "custom-container", "d-flex", "justify-content-center", "extra-rounded"
   );
 
-  return fetch('config.json') // adjust path as needed
-    .then(response => response.json())
-    .then(config => {
-      document.getElementById('document-title').textContent = config.title;
-      document.getElementById('page-title').textContent = config.title;
-
-      return config;
-    })
-    .then(config => {
-      const currentPath = window.location.pathname;
-      const currentFile = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-
-      let matchedPage = null;
-      let matchedSectionTitle = null;
-
-      for (const section of config.sections) {
-        for (const page of section.pages) {
-          if (page.link === currentFile || page.link.endsWith('/' + currentFile)) {
-            matchedPage = page;
-            matchedSectionTitle = section.title;
-            break;
-          }
-        }
-        if (matchedPage) break;
+  const response = await fetch('config.json') // adjust path as needed
+    ;
+  const config = await response.json();
+  document.getElementById('document-title').textContent = config.title;
+  document.getElementById('page-title').textContent = config.title;
+  const config_1 = config;
+  const currentPath = window.location.pathname;
+  const currentFile = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+  let matchedPage = null;
+  let matchedSectionTitle = null;
+  for (const section of config_1.sections) {
+    for (const page of section.pages) {
+      if (page.link === currentFile || page.link.endsWith('/' + currentFile)) {
+        matchedPage = page;
+        matchedSectionTitle = section.title;
+        break;
       }
+    }
+    if (matchedPage) break;
+  }
+  if (matchedPage) {
+    const breadcrumbList = document.querySelector('.breadcrumb');
+    const currentItem = document.getElementById('breadcrumb-current');
 
-      if (matchedPage) {
-        const breadcrumbList = document.querySelector('.breadcrumb');
-        const currentItem = document.getElementById('breadcrumb-current');
+    if (breadcrumbList && currentItem && matchedSectionTitle) {
+      const sectionItem = document.createElement('li');
+      sectionItem.className = 'breadcrumb-item';
+      sectionItem.textContent = matchedSectionTitle;
+      breadcrumbList.insertBefore(sectionItem, currentItem);
+    }
 
-        if (breadcrumbList && currentItem && matchedSectionTitle) {
-          const sectionItem = document.createElement('li');
-          sectionItem.className = 'breadcrumb-item';
-          sectionItem.textContent = matchedSectionTitle;
-          breadcrumbList.insertBefore(sectionItem, currentItem);
-        }
-
-        currentItem.textContent = matchedPage.title;
-        document.getElementById('subtitle-current').textContent = matchedPage.title;
-        document.getElementById('document-title').textContent += (" | " + matchedPage.title);
-      }
-    });
+    currentItem.textContent = matchedPage.title;
+    document.getElementById('subtitle-current').textContent = matchedPage.title;
+    document.getElementById('document-title').textContent += (" | " + matchedPage.title);
+  }
 }).catch(error => {
   console.error('Error loading layout or page data:', error);
 });
