@@ -11,7 +11,7 @@ new Promise(async () => {
   try {
     // Show the modal
     (async () => {
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise(resolve => setTimeout(resolve, 750));
       if (!workCompleted) {
         myModal.show();
         shownModal = true;
