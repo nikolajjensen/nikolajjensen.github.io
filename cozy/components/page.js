@@ -1,3 +1,10 @@
+function hideSpinner() {
+  const overlay = document.getElementById('loading-overlay');
+  if (overlay) {
+    overlay.classList.add('d-none');
+  }
+}
+
 function loadFragment(id, url) {
   return fetch(url)
     .then(response => response.text())
@@ -53,4 +60,7 @@ Promise.all([
   }
 }).catch(error => {
   console.error('Error loading layout or page data:', error);
+}).finally(() => {
+  hideSpinner();
+  console.log("Attempting to hide spinner:", document.getElementById('loading-overlay'));
 });
