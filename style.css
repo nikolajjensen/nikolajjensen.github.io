@@ -179,3 +179,9 @@ a:active {
     padding-left: 30px;
     padding-right: 30px;
   }
+
+.fit-width {
+  margin: auto;
+  max-width: none;  
+  width: fit-content;
+}
