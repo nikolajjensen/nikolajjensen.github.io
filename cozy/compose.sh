@@ -93,6 +93,12 @@ EOF
       <!-- PAGE CONTENT -->
 
       <div class="col h-pad">
+        <div class="d-flex justify-content-center">
+          <div id="nav-btns"></div>
+        </div>
+      </div>
+
+      <div class="col h-pad">
         <hr class="solid">
       </div>
       <div class="col">
