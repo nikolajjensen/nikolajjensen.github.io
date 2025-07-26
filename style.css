@@ -11,23 +11,31 @@
 .custom-container {
   width: 100%;
   max-width: 100%;
-  padding: 0 15px;
+  padding-top: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
   margin: 0 auto;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* Boxed mode for larger screens */
-@media (min-width: 780px) {
+@media (min-width: 840px) {
   .custom-container {
-    max-width: 720px;
+    max-width: 840px;
     margin-top: 50px;
     margin-bottom: 50px;
     padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
     border: 1px solid #dfdfdf;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.175) !important;
   }
+}
+
+.h-pad {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .arm-blue {
@@ -117,13 +125,13 @@
 
 @media (min-width: 420px) {
   .header-name {
-    font-size: calc(0.4rem + 4.5vw);
+    font-size: calc(0.35rem + 5.8vw);
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 840px) {
   .header-name {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -156,4 +164,30 @@ a:active {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   /* Enables smooth scrolling on iOS */
+}
+
+pre {
+  overflow: scroll;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.carousel {
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+
+.carousel img {
+  object-fit: fill;
+}
+
+.list-group-item.custom-padding {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.fit-width {
+  margin: auto;
+  max-width: none;
+  width: fit-content;
 }

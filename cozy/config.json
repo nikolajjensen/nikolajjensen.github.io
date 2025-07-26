@@ -1,0 +1,115 @@
+{
+    "title": "Nikolaj's Cozy Mk IV",
+    "sections": [
+        {
+            "title": "Setup",
+            "pages": [
+                {
+                    "title": "Chapters 1, 2, 3",
+                    "subtitle": "Practising with composites",
+                    "progress": 0,
+                    "link": "setup.html"
+                }
+            ]
+        },
+        {
+            "title": "Fuselage I",
+            "pages": [
+                {
+                    "title": "Chapter 4"
+                },
+                {
+                    "title": "Chapter 5"
+                },
+                {
+                    "title": "Chapter 6"
+                },
+                {
+                    "title": "Chapter 7"
+                },
+                {
+                    "title": "Chapter 8"
+                },
+                {
+                    "title": "Chapter 9"
+                }
+            ]
+        },
+        {
+            "title": "Canard",
+            "pages": [
+                {
+                    "title": "Chapter 10"
+                },
+                {
+                    "title": "Chapter 11"
+                },
+                {
+                    "title": "Chapter 12"
+                }
+            ]
+        },
+        {
+            "title": "Nosegear",
+            "pages": [
+                {
+                    "title": "Chapter 13"
+                }
+            ]
+        },
+        {
+            "title": "Fuselage II",
+            "pages": [
+                {
+                    "title": "Chapter 14"
+                },
+                {
+                    "title": "Chapter 15"
+                },
+                {
+                    "title": "Chapter 16"
+                },
+                {
+                    "title": "Chapter 17"
+                },
+                {
+                    "title": "Chapter 18"
+                }
+            ]
+        },
+        {
+            "title": "Wings",
+            "pages": [
+                {
+                    "title": "Chapter 19"
+                },
+                {
+                    "title": "Chapter 20"
+                },
+                {
+                    "title": "Chapter 21"
+                }
+            ]
+        },
+        {
+            "title": "Miscellaneous",
+            "pages": [
+                {
+                    "title": "Chapter 22"
+                },
+                {
+                    "title": "Chapter 23"
+                },
+                {
+                    "title": "Chapter 24"
+                },
+                {
+                    "title": "Chapter 25"
+                },
+                {
+                    "title": "Chapter 26"
+                }
+            ]
+        }
+    ]
+}

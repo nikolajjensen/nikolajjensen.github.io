@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [master]  # or 'master', depending on your repo
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Compose Pages
+        run: |
+          chmod +x ./cozy/compose.sh
+          ./cozy/compose.sh ./cozy/pages/
+
+      - name: Prepare output folder
+        run: |
+          mkdir output
+          cp -r ./prism output/
+          cp -r ./res output/
+          find ./ -maxdepth 1 -type f -name "*.html" -exec cp {} output/ \;
+          find ./ -maxdepth 1 -type f -name "*.css" -exec cp {} output/ \;
+
+          mkdir output/cozy
+          cp -r ./cozy/res/ output/cozy/res/
+          find ./cozy/ -maxdepth 1 -type f -name "*.html" -exec cp {} output/cozy/ \;
+          find ./cozy/ -maxdepth 1 -type f -name "*.js" -exec cp {} output/cozy/ \;
+          find ./cozy/ -maxdepth 1 -type f -name "*.json" -exec cp {} output/cozy/ \;
+          
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./output
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
